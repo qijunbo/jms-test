@@ -7,9 +7,13 @@ buildscript {
     }
 }
 
+ext {
+	springVersion = '4.1.6.RELEASE'
+	 
+}
+
 apply plugin: 'java'
 apply plugin: 'eclipse'
-apply plugin: 'idea'
 apply plugin: 'spring-boot'
 
 jar {
@@ -25,13 +29,19 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
+
+    compile files('libs/mq/com.ibm.mq.jar')
+    compile files('libs/mq/com.ibm.mqjms.jar')
+    compile files('libs/mq/com.ibm.mq.jmqi.jar')
+    compile files('libs/mq/dhbcore.jar')
+	compile 'com.google.code.gson:gson:2.3.1' 
+	compile 'javax.jms:javax.jms-api:2.0' 
     compile("org.springframework.boot:spring-boot-starter-web")
-    // tag::actuator[]
     compile("org.springframework.boot:spring-boot-starter-actuator")
-    // end::actuator[]
-    // tag::tests[]
-    testCompile("org.springframework.boot:spring-boot-starter-test")
-    // end::tests[]
+	compile "org.springframework:spring-jms:$springVersion"
+	
+	testCompile("org.springframework.boot:spring-boot-starter-test")
+	
 }
 
 task wrapper(type: Wrapper) {
