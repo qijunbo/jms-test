@@ -36,11 +36,13 @@ dependencies {
     compile files('libs/mq/dhbcore.jar')
 	compile 'com.google.code.gson:gson:2.3.1' 
 	compile 'javax.jms:javax.jms-api:2.0' 
-    compile("org.springframework.boot:spring-boot-starter-web")
-    compile("org.springframework.boot:spring-boot-starter-actuator")
+    compile "org.springframework.boot:spring-boot-starter-web"
+    compile "org.springframework.boot:spring-boot-starter-actuator" 
 	compile "org.springframework:spring-jms:$springVersion"
-	
-	testCompile("org.springframework.boot:spring-boot-starter-test")
+	compile "org.springframework:spring-aop:$springVersion"
+	compile "org.springframework:spring-aspects:$springVersion"
+	compile "org.aspectj:aspectjrt:1.8.9"
+	testCompile  "org.springframework.boot:spring-boot-starter-test" 
 	
 }
 
