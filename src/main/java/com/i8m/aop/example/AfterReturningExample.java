@@ -8,9 +8,11 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AfterReturningExample {
 
-    @AfterReturning("execution(* com.i8m.payment.audit.*.write(..))")
-    public void doAccessCheck() {
-    	System.out.println("I was invoked after returning!");
-    }
+	@AfterReturning(pointcut = "execution(* com.i8m.payment.audit.*.write(..))", returning = "retVal")
+	public void doAccessCheck(String retVal) {
+
+		System.out.println(retVal);
+		System.out.println("I was invoked after returning!");
+	}
 
 }

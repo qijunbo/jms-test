@@ -27,6 +27,7 @@ public class DefaultAuditJMSServiceImpl implements AuditJMSService {
 	public void write(final String audit) {
 
 		try {
+
 			if (configure.isAuditEnable()) {
 
 				this.jmsTemplate.send(configure.getQueue(), new MessageCreator() {
@@ -36,6 +37,7 @@ public class DefaultAuditJMSServiceImpl implements AuditJMSService {
 					}
 				});
 			}
+
 		} catch (Exception e) {
 			System.out.println(e);
 		}
