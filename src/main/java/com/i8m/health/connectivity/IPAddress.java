@@ -9,7 +9,7 @@ import java.util.Enumeration;
 import java.util.List;
 
 public class IPAddress {
-	public static void main(String[] args) throws UnknownHostException, SocketException {
+	private static void main(String[] args) throws UnknownHostException, SocketException {
 		System.out.println("Host:\t" + InetAddress.getLocalHost() + "\n");
 		Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces();
 
